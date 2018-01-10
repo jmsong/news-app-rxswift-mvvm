@@ -18,11 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let urlCache = URLCache(memoryCapacity: 4 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, diskPath: nil)
         URLCache.shared = urlCache
         
-        UINavigationBar.appearance().backgroundColor = ThemeUtils.mainColor()
-        UIBarButtonItem.appearance().tintColor = .white
-        //Since iOS 7.0 UITextAttributeTextColor was replaced by NSForegroundColorAttributeName
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
         return true
     }
 

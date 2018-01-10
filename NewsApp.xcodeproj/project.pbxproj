@@ -14,6 +14,7 @@
 		8F81EB352005948500850F4E /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EB342005948500850F4E /* UIUtils.swift */; };
 		8F81EB3A2005963B00850F4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F81EB382005963B00850F4E /* Localizable.strings */; };
 		8F81EB3D2005974300850F4E /* UINavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EB3C2005974300850F4E /* UINavigator.swift */; };
+		8F81EB3F2005A73400850F4E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EB3E2005A73400850F4E /* UIViewController+Extensions.swift */; };
 		CC1712302004643C003F800B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC17122F2004643C003F800B /* AppDelegate.swift */; };
 		CC1712372004643C003F800B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1712352004643C003F800B /* Main.storyboard */; };
 		CC1712392004643C003F800B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC1712382004643C003F800B /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		8F81EB372005957200850F4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		8F81EB392005963B00850F4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = NewsApp/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F81EB3C2005974300850F4E /* UINavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigator.swift; sourceTree = "<group>"; };
+		8F81EB3E2005A73400850F4E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CC17122C2004643C003F800B /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC17122F2004643C003F800B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC1712362004643C003F800B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				CC79BC832004BBD8000C68DD /* String+Extensions.swift */,
 				CC79BC872004BBD8000C68DD /* UIScrollView+Extensions.swift */,
 				CC79BC882004BBD8000C68DD /* UITableView+Extensions.swift */,
+				8F81EB3E2005A73400850F4E /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				CC79BC982004BBD8000C68DD /* String+Extensions.swift in Sources */,
 				CC79BC912004BBD8000C68DD /* DatabaseManager.swift in Sources */,
 				8F81EB072005933100850F4E /* NewsDetailViewController.swift in Sources */,
+				8F81EB3F2005A73400850F4E /* UIViewController+Extensions.swift in Sources */,
 				CCCC8EFC2004DEED0029CB58 /* ThemeUtils.swift in Sources */,
 				8F81EB352005948500850F4E /* UIUtils.swift in Sources */,
 				CC79BC9D2004BBD8000C68DD /* UITableView+Extensions.swift in Sources */,

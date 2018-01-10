@@ -25,6 +25,7 @@ class NewsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        applyThemeColor()
         initWebview()
         self.shyNavBarManager.scrollView = self.webView.scrollView
     }
@@ -103,14 +104,16 @@ class NewsDetailViewController: UIViewController {
             return
         }
 
-        let request = URLRequest(url: url)
-        webView.load(request)
+        var urlRequestCache = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
+        if !ConnectionStatus.isInternetAvailable() {
+            urlRequestCache = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 60)
+        }
+        webView.load(urlRequestCache)
     }
 
     private func startLoading() {
         initRequest()
-        if ConnectionStatus.isInternetAvailable() {
-        } else {
+        if !ConnectionStatus.isInternetAvailable() {
             UIUtils.showError(message: Localizer.no_internet.description)
         }
     }
