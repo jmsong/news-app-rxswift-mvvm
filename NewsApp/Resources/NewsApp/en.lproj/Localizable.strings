@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  NewsApp
+
+  Created by Tran Minh Tung on 1/10/18.
+  Copyright © 2018 tungtm. All rights reserved.
+*/
+"no_internet"="No internet connection. Please try again later.";
+"invalid_url"="The URL is invalid.";
+"no_news_found"="No News Found.";
+"something_wrong"="Sorry, something went wrong. \nPlease try again later.";

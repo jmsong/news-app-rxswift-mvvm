@@ -13,7 +13,6 @@ import Whisper
 
 class HeadlinesViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
-    var detailViewController: DetailViewController? = nil
 
     fileprivate var viewModel = HeadlinesViewModel()
     fileprivate var disposeBag = DisposeBag()
@@ -23,11 +22,7 @@ class HeadlinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
-
+        navigationController?.navigationItem.title = "News"
         initTableView()
         bindToRx()
     }
@@ -57,8 +52,7 @@ extension HeadlinesViewController: PullApplicable {
         viewModel.internetStatus.value = ConnectionStatus.isInternetAvailable()
         viewModel.internet.subscribe(onNext: { isAvailable in
             if !isAvailable {
-//                UIUtils.showError(message: Localizer.no_internet.description)
-                
+                UIUtils.showError(message: Localizer.no_internet.description)
             }
         }).disposed(by: disposeBag)
 
@@ -67,9 +61,9 @@ extension HeadlinesViewController: PullApplicable {
         viewModel.requestingPull.bind(to: refresher.rx.isRefreshing).disposed(by: disposeBag)
 
         viewModel.requestingPull.subscribe(onNext: { executing in
-//            UIUtils.showIndicator(executing: executing, withProgress: false)
+            UIUtils.showIndicator(executing: executing)
         }, onDisposed: {
-//            UIUtils.showIndicator(executing: false, withProgress: false)
+            UIUtils.showIndicator(executing: false)
         }).disposed(by: disposeBag)
     }
 }
@@ -99,7 +93,7 @@ extension HeadlinesViewController {
     fileprivate func initTableView() {
         tableView.register(UINib(nibName: String(describing: ArticleItemCell.self), bundle: nil),
                            forCellReuseIdentifier: String(describing: ArticleItemCell.self))
-        tableView.empty(message: "No Articles Found")
+        tableView.empty(message: Localizer.no_news_found.description)
     }
 
     fileprivate func bindToRx() {
@@ -110,7 +104,7 @@ extension HeadlinesViewController {
         viewModel.internetStatus.value = ConnectionStatus.isInternetAvailable()
         viewModel.internet.subscribe(onNext: { isAvailable in
             if !isAvailable {
-//                UIUtils.showError(message: Localizer.no_internet.description)
+                UIUtils.showError(message: Localizer.no_internet.description)
             }
         }).disposed(by: disposeBag)
 
@@ -127,13 +121,7 @@ extension HeadlinesViewController {
                 return
             }
             
-            if let split = self?.splitViewController {
-                let controllers = split.viewControllers
-                let detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-                detailViewController?.detailItem = item.url
-                detailViewController?.navigationItem.leftBarButtonItem = split.displayModeButtonItem
-                detailViewController?.navigationItem.leftItemsSupplementBackButton = true
-            }
+            UINavigator.navigateToWebView(newsUrl: item.url)
         }).disposed(by: disposeBag)
         
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -157,12 +145,12 @@ extension HeadlinesViewController {
                 
             } else {
                 tableView.hideEmpty()
-//                UIUtils.showError(message: response.message)
+                UIUtils.showError(message: response.status)
             }
             
         case .failure(let errorMsg), .unauthorized(let errorMsg):
             tableView.hideEmpty()
-//            UIUtils.showError(message: errorMsg)
+            UIUtils.showError(message: errorMsg)
         }
     }
 }

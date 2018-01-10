@@ -84,43 +84,7 @@ extension String {
 
 enum Localizer: String {
     // swiftlint:disable identifier_name
-    case something_wrong, no_internet
-    case enter_username, enter_email, enter_valid_email,
-    enter_first_name, enter_last_name,
-    enter_password, enter_confirm_password, password_not_match, password_min
-    case forgot_password_title, enter_email_title, enter_email_hint, password_request_sent_title, password_request_sent
-    case first_name, last_name, email_address, password, confirm_password
-    case news_feed, pulse_news_feed, empty_feed_message, pull_to_refresh
-    case no_news, no_events, no_tweets, no_trials
-    case no_likes_message
-    case invalid_url
-    case ok, cancel, request
-    case search_placeholder,
-    search_kol_placeholder,
-    search_disease_placeholder,
-    search_trial_placeholder,
-    recent_search, no_result_found
-
-    case like_icon = "\u{E800}"
-    case comment_icon = "\u{F0E5}"
-    case sign_out_icon = "\u{E802}"
-    case lock_icon = "\u{E803}"
-    case user_icon = "\u{E805}"
-    case mail_icon = "\u{F0E0}"
-    case vcard_icon = "\u{E804}"
-    case close_icon = "\u{E801}"
-    case subscribe_icon = "\u{E809}"
-    case ok_icon = "\u{E807}"
-    case linkedin_icon = "\u{F318}"
-    case twitter_icon = "\u{F309}"
-    case share_icon = "\u{E806}"
-    case info_icon = "\u{E808}"
-    case search_icon = "\u{E80A}"
-    case back_icon = "\u{E80B}"
-    case clear_icon = "\u{E80C}"
-    case unfavorite_icon = "\u{E80D}"
-    case favorite_icon = "\u{E80E}"
-    case big_dot = "\u{2022}"
+    case something_wrong, no_internet, invalid_url, no_news_found
 
     var description: String {
         return self.rawValue.localized
